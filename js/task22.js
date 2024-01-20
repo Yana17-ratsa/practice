@@ -19,11 +19,12 @@ divElem.addEventListener("click", onOuterCircle);
 
 function onOuterCircle() {
   if ((divElem.style.position === "absolute")) {
-    divElem.style.position = "static";
+      divElem.style.position = "static";
+      window.removeEventListener("mousemove", onWindowMove);
   } else {
-    divElem.style.position = "absolute";
+      divElem.style.position = "absolute";
+      window.addEventListener("mousemove", onWindowMove);
   }
-  window.addEventListener("mousemove", onWindowMove);
 }
 
 function onWindowMove(e) {
